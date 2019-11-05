@@ -22,6 +22,14 @@
                       }
                     }
                   });
+        var coverage = smart.patient.api.read({
+                        type: 'Coverage',
+                        query: {
+                          code: {
+                            $or: ['http://loinc.org|63066-5', 'http://loinc.org|63513-6']
+                          }
+                        }
+        });
 
         $.when(pt, obv).fail(onError);
 
