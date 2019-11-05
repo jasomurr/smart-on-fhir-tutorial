@@ -22,6 +22,7 @@
                       }
                     }
                   });
+        
         var coverage = smart.patient.api.read({
                         type: 'Coverage',
                         query: {
