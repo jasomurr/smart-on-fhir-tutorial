@@ -23,7 +23,7 @@
                     }
                   });
         
-        var coverage = smart.patient.api.read({
+        var coverage = smart.patient.api.fetchAll({
                         type: 'Coverage',
                         query: {
                           code: {
