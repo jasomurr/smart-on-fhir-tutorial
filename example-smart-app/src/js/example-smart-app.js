@@ -31,9 +31,7 @@
                           }
                         }
         });
-        
-        $.when(pt, coverage).fail(onError);
-          
+
           $.when(pt, coverage).done(function(patient, coverage) {
           var coverageByCodes = smart.byCodes(coverage, 'code');
                           
