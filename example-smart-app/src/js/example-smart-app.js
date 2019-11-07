@@ -46,6 +46,15 @@
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
           }
+          
+          $.when(pt, coverage).fail(onError);
+          
+          $.when(pt, coverage).done(function(patient, coverage) {
+          var coverageByCodes = smart.byCodes(coverage, 'code');
+          }
+                                    
+          var bCoveredByHealth = coverageByCodes('63513-6');                           
+          
 
           var height = byCodes('8302-2');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
