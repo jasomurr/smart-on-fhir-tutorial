@@ -32,11 +32,11 @@
                         }
         });
 
-         
+           $.when(pt, coverage).done(function(patient, coverage) {
           var coverageByCodes = smart.byCodes(coverage, 'code');
                           
           var bCoveredByHealth = coverageByCodes('63513-6');    
-           
+           });
 
         $.when(pt, obv).fail(onError);
 
