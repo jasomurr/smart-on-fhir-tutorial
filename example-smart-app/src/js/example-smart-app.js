@@ -11,17 +11,9 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
+	
+	var covRead = smart.api.read({type: "Coverage"});
 		
-		smart.patient.api.search({
-			type: "Coverage",
-			count: 5,
-			query: {$sort: [["date","asc"]]}
-		}).then(function(results, ref) {
-				results.forEach(function(coverage) {
-					//do something with the observation
-					var cov = coverage.valueQuantity.value;
-				});
-			});
 		
 		
         var obv = smart.patient.api.fetchAll({
