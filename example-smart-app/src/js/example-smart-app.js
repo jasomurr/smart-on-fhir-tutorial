@@ -12,7 +12,10 @@
         var patient = smart.patient;
         var pt = patient.read();
 		
-		smart.patient.api.fetchAll({type: "Coverage"})
+		smart.patient.api.search({
+			type: "Coverage",
+			count: 5,
+			query: {$sort: [["date","asc"]]})
 			.then(function(results, ref) {
 				results.forEach(function(coverage) {
 					//do something with the observation
