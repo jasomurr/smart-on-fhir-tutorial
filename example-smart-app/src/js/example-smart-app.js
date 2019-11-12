@@ -11,6 +11,16 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
+		
+		smart.patient.api.fetchAll({type: "Coverage"})
+			.then(function(results, ref) {
+				results.forEach(function(coverage) {
+					//do something with the observation
+					var cov = coverage.valueQuantity.value;
+				});
+			});
+		
+		
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
@@ -23,14 +33,14 @@
                     }
                   });
         
-        var coverage = smart.patient.api.fetchAll({
+/*         var coverage = smart.patient.api.fetchAll({
                         type: 'Coverage',
                         query: {
                           code: {
                             $or: ['http://loinc.org|63066-5', 'http://loinc.org|63513-6']
                           }
                         }
-        });
+        }); */
 
           
              
@@ -51,8 +61,8 @@
           }
           
                                  
-          var coverageByCodes = smart.byCodes(coverage, 'code');           
-          var bCoveredByHealth = coverageByCodes('63513-6');
+/*           var coverageByCodes = smart.byCodes(coverage, 'code');           
+          var bCoveredByHealth = coverageByCodes('63513-6'); */
 
           var height = byCodes('8302-2');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
