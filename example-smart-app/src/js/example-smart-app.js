@@ -15,8 +15,8 @@
 		smart.patient.api.search({
 			type: "Coverage",
 			count: 5,
-			query: {$sort: [["date","asc"]]})
-			.then(function(results, ref) {
+			query: {$sort: [["date","asc"]]}
+		}).then(function(results, ref) {
 				results.forEach(function(coverage) {
 					//do something with the observation
 					var cov = coverage.valueQuantity.value;
